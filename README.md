@@ -1,4 +1,6 @@
-Generate patches from SlideRunner labels
+Generate patches from SlideRunner sqlite labels
+
+https://github.com/maubreville/SlideRunner
 
 ```
 $ python make_patch.py --sqlite roi-test.sqlite --wsidir /mnt/DATA/hanli-office-test/ --pngdir png-output
