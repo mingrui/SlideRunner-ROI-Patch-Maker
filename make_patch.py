@@ -4,13 +4,13 @@ import os
 
 import openslide
 
-SIZE = (512, 512)
-
 parser = argparse.ArgumentParser()
 parser.add_argument('--sqlite', help='path to .sqlite file')
 parser.add_argument('--wsidir', help='path to wsi directory')
 parser.add_argument('--pngdir', help='path to png output directory')
 args = parser.parse_args()
+
+SIZE = (512, 512)
 
 UID = 0
 TYPE = 1
@@ -100,6 +100,8 @@ def process_slide(annotation_data, slide_path, size, png_dir):
     for antt in annotation_data:
         if antt[TYPE] == SPOT:
             x, y = antt[X], antt[Y]
+            # openslide x and y coordinates are at top left corner
+            # sliderunner x and y coordinates are at center
             region = sld.read_region((x-size[0]//2, y-size[1]//2), 0, size)
             region.save(os.path.join(png_dir, '{}-{}.png'.format(x, y)), 'PNG')
 
