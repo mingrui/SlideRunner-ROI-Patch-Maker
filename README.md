@@ -1,4 +1,4 @@
-Generate patches from SlideRunner sqlite labels
+Generate patches from SlideRunner annotation database
 
 https://github.com/maubreville/SlideRunner
 
