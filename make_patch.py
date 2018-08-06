@@ -103,7 +103,5 @@ def process_slide(annotation_data, slide_path, size, png_dir):
             region = sld.read_region((x-size[0]//2, y-size[1]//2), 0, size)
             region.save(os.path.join(png_dir, '{}-{}.png'.format(x, y)), 'PNG')
 
-
 if __name__=='__main__':
     batch(args.sqlite, args.wsidir, args.pngdir)
-
